@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Monta o diretório atual para o diretório /app no contêiner
+      # Isso permite o live-reloading de código e persiste o banco de dados SQLite
+      - .:/app
+    #command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
